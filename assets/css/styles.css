@@ -1,4 +1,13 @@
-@charset "UTF-8";
+.loginbody {
+  background-position: 50% 40%;
+  background-size: 150%;
+  background-repeat: no-repeat;
+    background-image: url(https://img.lovepik.com/58pic/33/50/00/63D58PICh2b25Q20JvB7b_PIC2018.png);
+    
+}
+#mi-icono {
+  color: white;
+}
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
