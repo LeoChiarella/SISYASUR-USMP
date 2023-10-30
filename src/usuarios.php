@@ -40,7 +40,41 @@ if (!empty($_POST)) {
     }
 }
 ?>
-
+<button class="btn btn-primary" type="button" data-toggle="modal" data-target="#nuevo_usuario"><i class="fas fa-plus"></i></button>
+<div id="nuevo_usuario" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="my-modal-title">Nuevo Usuario</h5>
+                <button class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="" method="post" autocomplete="off">
+                    <?php echo isset($alert) ? $alert : ''; ?>
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" class="form-control" placeholder="Ingrese Nombre" name="nombre" id="nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="correo">Correo</label>
+                        <input type="email" class="form-control" placeholder="Ingrese Correo Electrónico" name="correo" id="correo">
+                    </div>
+                    <div class="form-group">
+                        <label for="usuario">Usuario</label>
+                        <input type="text" class="form-control" placeholder="Ingrese Usuario" name="usuario" id="usuario">
+                    </div>
+                    <div class="form-group">
+                        <label for="clave">Contraseña</label>
+                        <input type="password" class="form-control" placeholder="Ingrese Contraseña" name="clave" id="clave">
+                    </div>
+                    <input type="submit" value="Registrar" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="table-responsive">
     <table class="table table-hover table-striped table-bordered mt-2" id="tbl">
         <thead class="thead-dark">
@@ -49,6 +83,7 @@ if (!empty($_POST)) {
                 <th>Usuario</th>
                 <th>Nombre</th>
                 <th>Correo</th>
+                <th>Estado</th>
                 <th></th>
             </tr>
         </thead>
@@ -73,7 +108,29 @@ if (!empty($_POST)) {
                         <td><?php echo $data['nombre']; ?></td>
                         <td><?php echo $data['correo']; ?></td>
                         <td><?php echo $data['usuario']; ?></td>
-                        
+                        <td><?php echo $estado; ?></td>
+                        <td>
+                            <?php if ($data['estado'] == 1) { ?>
+
+                                <a href="rol.php?id=<?php echo $data['idusuario']; ?>" class="btn btn-warning"><i class='fas fa-key'></i></a>
+                                
+                                <a href="editar_usuario.php?id=<?php echo $data['idusuario']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
+
+                                <form action="eliminar_usuario.php?id=<?php echo $data['idusuario']; ?>" method="post" class="confirmar d-inline">
+                                    <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
+                                </form>
+                                <form action="desactivar_usuario.php?id=<?php echo $data['idusuario']; ?>" method="post" class=" d-inline">
+                                    <button class="btn btn-danger" type="submit"><i class="fa fa-minus"></i></button>
+                                </form>
+
+                            <?php } ?>
+                            <?php if ($data['estado'] == 0) { ?>
+                                <form action="activar_usuario.php?id=<?php echo $data['idusuario']; ?>" method="post" class=" d-inline">
+                                    <button class="btn btn-success" type="submit"><i class="fa fa-check"></i> </button>
+                                </form>
+
+                            <?php } ?>
+                        </td>
                     </tr>
             <?php }
             } ?>

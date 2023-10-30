@@ -1,4 +1,4 @@
-<?php include_once "includes/header.php";
+ <?php include_once "includes/header.php";
     include "../conexion.php";
 $id_user = $_SESSION['idUser'];
 $permiso = "productos";
@@ -51,7 +51,6 @@ if (empty($existe) && $id_user != 1) {
                  <th>Producto</th>
                  <th>Precio</th>
                  <th>Stock</th>
-                 <th>Estado</th>
                  <th></th>
              </tr>
          </thead>
@@ -75,7 +74,6 @@ if (empty($existe) && $id_user != 1) {
                          <td><?php echo $data['descripcion']; ?></td>
                          <td><?php echo $data['precio']; ?></td>
                          <td><?php echo $data['existencia']; ?></td>
-                         <td><?php echo $estado ?></td>
                          <td>
                              <?php if ($data['estado'] == 1) { ?>
                                  <a href="agregar_producto.php?id=<?php echo $data['codproducto']; ?>" class="btn btn-primary"><i class='fas fa-audio-description'></i></a>
