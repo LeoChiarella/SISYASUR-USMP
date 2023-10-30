@@ -49,7 +49,7 @@ if (empty($existe) && $id_user != 1) {
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label><i class="fas fa-user"></i> VENDEDOR</label>
-                            <p style="font-size: 16px; text-transform: uppercase; color: red;"><?php echo $_SESSION['nombre']; ?></p>
+                            <p style="font-size: 16px; text-transform: uppercase; color: black;"><?php echo $_SESSION['nombre']; ?></p>
                         </div>
                     </div>
                     <div class="col-lg-6">

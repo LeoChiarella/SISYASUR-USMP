@@ -22,9 +22,11 @@ if (empty($_SESSION['active'])) {
 
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <a class="navbar-brand" href="index.php">Pos Venta</a>
+        
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+        <a class="navbar-brand" href="index.php">Pos Venta</a>
 
+        <p class="navbar-brand" style="font-size: 16px; text-transform: uppercase; color: white;"><?php echo $_SESSION['nombre']; ?></p>
         <!-- Navbar-->
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">

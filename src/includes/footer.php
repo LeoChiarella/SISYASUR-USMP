@@ -33,6 +33,32 @@
 <script src="../assets/js/jquery-ui/jquery-ui.min.js"></script>
 <script src="../assets/js/Chart.bundle.min.js"></script>
 <script src="../assets/js/funciones.js"></script>
+<script type="text/javascript">
+       $(document).ready(function () {
+    if ($.fn.DataTable.isDataTable('#tbl')) {
+        $('#tbl').DataTable().destroy();
+    }
+
+    $('#tbl').DataTable({
+        language: {
+            url: "https://cdn.datatables.net/plug-ins/1.11.10/i18n/Spanish.json",
+            info: "Mostrando _START_ a _END_ de _TOTAL_ entradas",
+            paginate: {
+                first: "Primero",
+                last: "Último",
+                previous: "Anterior",
+                next: "Siguiente"
+            },
+            search: "Búsqueda:",
+            lengthMenu: "Mostrar _MENU_ entradas" // Personaliza la etiqueta de "Show [X] entries" aquí
+        }
+    });
+});
+
+
+
+
+    </script>
 </body>
 
 </html>

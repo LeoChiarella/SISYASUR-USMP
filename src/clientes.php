@@ -52,7 +52,6 @@ if (!empty($_POST)) {
                 <th>Nombre</th>
                 <th>Teléfono</th>
                 <th>Dirección</th>
-                <th>Estado</th>
                 <th></th>
             </tr>
         </thead>
@@ -75,7 +74,7 @@ if (!empty($_POST)) {
                         <td><?php echo $data['nombre']; ?></td>
                         <td><?php echo $data['telefono']; ?></td>
                         <td><?php echo $data['direccion']; ?></td>
-                        <td><?php echo $estado; ?></td>
+                       
                         <td>
                             <?php if ($data['estado'] == 1) { ?>
                                 <a href="editar_cliente.php?id=<?php echo $data['idcliente']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
